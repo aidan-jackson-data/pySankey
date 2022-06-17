@@ -1,6 +1,6 @@
 # pySankey
 
-Originally created by [anazalea](https://github.com/anazalea), forked by to change certain pieces of code or adjust.
+Originally created by [anazalea](https://github.com/anazalea), forked by [aidan-jackson-data](https://github.com/aidan-jackson-data) to change certain pieces of code or adjust functionality.
 
 Uses matplotlib to create simple <a href="https://en.wikipedia.org/wiki/Sankey_diagram">
 Sankey diagrams</a> flowing only from left to right.
