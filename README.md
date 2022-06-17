@@ -2,6 +2,16 @@
 
 Originally created by [anazalea](https://github.com/anazalea), forked by [aidan-jackson-data](https://github.com/aidan-jackson-data) to change certain pieces of code or adjust functionality.
 
+To pip install from the branch `main` on this repo run the following command:
+
+```
+pip install git+ssh://git@github.com/aidan-jackson-data/pySankey.git@main
+```
+
+This assumes you already have SSH setup with your GitHub profile.
+
+## FORKED README BELOW - STILL NEEDS UPDATES
+
 Uses matplotlib to create simple <a href="https://en.wikipedia.org/wiki/Sankey_diagram">
 Sankey diagrams</a> flowing only from left to right.
 
