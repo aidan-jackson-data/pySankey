@@ -1,5 +1,7 @@
 # pySankey
 
+Originally created by [anazalea](https://github.com/anazalea), forked by to change certain pieces of code or adjust.
+
 Uses matplotlib to create simple <a href="https://en.wikipedia.org/wiki/Sankey_diagram">
 Sankey diagrams</a> flowing only from left to right.
 
@@ -84,7 +86,7 @@ You can generate a sankey's diagram with this code:
 
 ```python
 import pandas as pd
-from pysankey import sankey
+from pySankey import sankey
 
 pd.options.display.max_rows = 8
 df = pd.read_csv(
@@ -124,7 +126,7 @@ You could also use weight:
 
 ```python
 import pandas as pd
-from pysankey import sankey
+from pySankey import sankey
 
 df = pd.read_csv(
     'pysankey/customers-goods.csv', sep=',',
