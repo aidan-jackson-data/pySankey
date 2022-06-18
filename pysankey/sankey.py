@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Produces simple Sankey Diagrams with matplotlib.
-@author: Anneya Golob & marcomanz & pierre-sassoulas & jorwoods
+@author: Anneya Golob & marcomanz & pierre-sassoulas & jorwoods & aidan-jackson-data
                       .-.
                  .--.(   ).--.
       <-.  .-.-.(.->          )_  .--.
@@ -39,7 +39,7 @@ class LabelMismatch(PySankeyException):
 
 
 def check_data_matches_labels(labels, data, side):
-    if len(labels > 0):
+    if len(labels) > 0:
         if isinstance(data, list):
             data = set(data)
         if isinstance(data, pd.Series):
@@ -52,7 +52,7 @@ def check_data_matches_labels(labels, data, side):
                 msg = "Labels: " + ",".join(labels) + "\n"
             if len(data) < 20:
                 msg += "Data: " + ",".join(data)
-            raise LabelMismatch('{0} labels and data do not match.{1}'.format(side, msg))
+            raise LabelMismatch('{0} labels and data do not match.\n {1}'.format(side, msg))
 
 
 def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
@@ -80,6 +80,7 @@ def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
     Ouput:
         None
     '''
+    
     if leftWeight is None:
         leftWeight = []
     if rightWeight is None:
@@ -117,13 +118,13 @@ def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
     if len(leftLabels) == 0:
         leftLabels = pd.Series(dataFrame.left.unique()).unique()
     else:
-        check_data_matches_labels(leftLabels, dataFrame['left'], 'left')
+        check_data_matches_labels(leftLabels, dataFrame['left'], 'Left')
 
     # Identify right labels
     if len(rightLabels) == 0:
         rightLabels = pd.Series(dataFrame.right.unique()).unique()
     else:
-        check_data_matches_labels(leftLabels, dataFrame['right'], 'right')
+        check_data_matches_labels(rightLabels, dataFrame['right'], 'Right')
     # If no colorDict given, make one
     if colorDict is None:
         colorDict = {}
@@ -237,6 +238,9 @@ def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
                 )
     plt.gca().axis('off')
     plt.gcf().set_size_inches(6, 6)
+
+    plt.show()
+    
     if figureName != None:
         plt.savefig("{}.png".format(figureName), bbox_inches='tight', dpi=150)
     if closePlot:
